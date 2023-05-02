@@ -204,9 +204,9 @@ def post(bf, visibility, caption, location, retakes, primary_path, secondary_pat
         loc = Location(location[0], location[1])
     primary_path = "data/photos/primary.jpg" if not primary_path else primary_path
     secondary_path = "data/photos/secondary.jpg" if not secondary_path else secondary_path
-    with open("data/photos/primary.jpg", "rb") as f:
+    with open(primary_path, "rb") as f:
         primary_bytes = f.read()
-    with open("data/photos/secondary.jpg", "rb") as f:
+    with open(secondary_path, "rb") as f:
         secondary_bytes = f.read()
     r = Post.create_post(bf, primary=primary_bytes, secondary=secondary_bytes, is_late=False, visibility=visibility,
                          caption=caption, location=loc, retakes=retakes, resize=resize)
